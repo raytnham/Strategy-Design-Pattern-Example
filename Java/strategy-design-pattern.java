@@ -6,7 +6,7 @@
 	Blog post: https://raydeveloperonline.com/2018/02/25/strategy-design-pattern/
  */
 
-// Create the strategy class.
+// Create the strategy interface.
 public interface FlyStrategy{
     public void fly();
 }
