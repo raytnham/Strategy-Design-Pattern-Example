@@ -72,9 +72,9 @@ public static void main(String[] args) {
     Vehicle mCar = new Car();
     Vehicle mPlane = new Plane();
 
-    System.out.println("Car object: ");
+    System.out.print("Car object: ");
     mCar.tryToFly();
-    System.out.println("Plane object: ");
+    System.out.print("Plane object: ");
     mPlane.tryToFly();
     /* Output:
         $ Car object: I cannot fly.
@@ -95,7 +95,7 @@ public static void main(String[] args) {
     //      its strategy to "I cannot fly" (FlyStrategy1).
     mPlane.setFlyStrategy(new FlyStrategy1());
 
-    System.out.println("Plane object: ");
+    System.out.print("Plane object: ");
     mPlane.tryToFly();
     /* Output:
         $ Plane object: I cannot fly.
