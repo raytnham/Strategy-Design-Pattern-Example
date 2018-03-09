@@ -6,7 +6,7 @@
 	Blog post: https://raydeveloperonline.com/2018/02/25/strategy-design-pattern/
  */
 
-// Create the strategy class.
+// Create the strategy interface.
 public interface FlyStrategy{
     public void fly();
 }
@@ -60,9 +60,40 @@ public class Car extends Vehicle{
 // If we have another child class that has the same behaviour with 
 // either the two classes above, we will not need to duplicate the code 
 // again.
-// aka. Resusability has been improved.
+// aka. Our codes are resusable.
 public class Aircraft extends Vehicle{
     public Aircraft(){
         super(new FlyStrategy1());
     }
+}
+
+public static void main(String[] args) {
+    // For example we have a car and a plane object.
+    Vehicle mCar = new Car();
+    Vehicle mPlane = new Plane();
+
+    System.out.println("Car object: " + mCar.tryToFly());
+    System.out.println("Plane object: " + mPlane.tryToFly());
+    /* Output:
+        $ Car object: I cannot fly.
+        $ Plane object: I can fly.
+    */
+    
+    // Assume Tesla has completed their flying car project,
+    //      we want to change the strategy of our Car object to FlyStrategy2.
+    mCar.setFlyStrategy(new FlyStrategy2());
+
+    System.out.println("Car object: " + mCar.tryToFly());
+    /* Output:
+        $ Car object: I can fly.
+    */
+
+    // Similarly, if the Plane object's engine is faulty, then we'd like to
+    //      its strategy to "I cannot fly" (FlyStrategy1).
+    mPlane.setFlyStrategy(new FlyStrategy1());
+
+    System.out.println("Plane object: " + mPlane.tryToFly());
+    /* Output:
+        $ Plane object: I cannot fly.
+    */
 }
