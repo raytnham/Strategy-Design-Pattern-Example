@@ -12,7 +12,7 @@ public interface FlyStrategy{
 }
 
 // The first concrete strategy class.
-public class FlyStrategy1 implements Flyable{
+public class FlyStrategy1 implements FlyStrategy{
     @Override
     public void fly(){
         System.out.println("I can fly.");
@@ -20,7 +20,7 @@ public class FlyStrategy1 implements Flyable{
 }
 
 // The second concrete strategy class.
-public class FlyStrategy2 implements Flyable{
+public class FlyStrategy2 implements FlyStrategy{
     @Override
     public void fly(){
         System.out.println("I cannot fly.");
@@ -40,7 +40,7 @@ public class Vehicle{
         strategy.fly();
     }
     // Define a method to change the object's strategy.
-    public boolean setFlyStrategy(FlyStrategy strategy){
+    public void setFlyStrategy(FlyStrategy strategy){
         this.strategy = strategy;
     }
 }
@@ -72,8 +72,10 @@ public static void main(String[] args) {
     Vehicle mCar = new Car();
     Vehicle mPlane = new Plane();
 
-    System.out.println("Car object: " + mCar.tryToFly());
-    System.out.println("Plane object: " + mPlane.tryToFly());
+    System.out.println("Car object: ");
+    mCar.tryToFly();
+    System.out.println("Plane object: ");
+    mPlane.tryToFly();
     /* Output:
         $ Car object: I cannot fly.
         $ Plane object: I can fly.
@@ -83,7 +85,8 @@ public static void main(String[] args) {
     //      we want to change the strategy of our Car object to FlyStrategy2.
     mCar.setFlyStrategy(new FlyStrategy2());
 
-    System.out.println("Car object: " + mCar.tryToFly());
+    System.out.print("Car object: ");
+    mCar.tryToFly();
     /* Output:
         $ Car object: I can fly.
     */
@@ -92,7 +95,8 @@ public static void main(String[] args) {
     //      its strategy to "I cannot fly" (FlyStrategy1).
     mPlane.setFlyStrategy(new FlyStrategy1());
 
-    System.out.println("Plane object: " + mPlane.tryToFly());
+    System.out.println("Plane object: ");
+    mPlane.tryToFly();
     /* Output:
         $ Plane object: I cannot fly.
     */
