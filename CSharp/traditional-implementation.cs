@@ -1,3 +1,11 @@
+/* 
+	File: /Strategy-Design-Pattern/CSharp/traditional-implementation.java
+	Description: This example demonstrates a simple example of traditional approach.
+	Author: Ray Nham (ray@raydeveloperonline.com)
+	Date: 25/02/2018
+	Blog post: https://raydeveloperonline.com/2018/02/25/strategy-design-pattern/
+ */
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
